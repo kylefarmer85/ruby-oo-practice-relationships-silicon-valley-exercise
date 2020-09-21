@@ -1,7 +1,7 @@
 require 'pry'
 class Startup
-  attr_accessor :name, :domain
-  attr_reader :founder
+  attr_accessor :name
+  attr_reader :founder, :domain
 
   @@all = []
 
@@ -22,11 +22,11 @@ class Startup
   end
 
   def self.find_by_founder(founder)
-    self.all.find {|startup| startup.founder == founder}
+    all.find {|startup| startup.founder == founder}
   end
 
   def self.domains
-    self.all.select {|startup| startup.domain}
+    all.select {|startup| startup.domain}
   end
 
   def sign_contract(venture_capitalist, investment_type, amount)
